@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="styles.css
+    "
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Tic-Tac-Toe</h1>
+      <div class="status-action">
+        <div class="status">Player <span>X</span> is Next</div>
+        <button type="submit" onClick="refreshPage()" id="reset-button">Reset Game</button>
+        </button>
+      </div>
+      <div class="game-grid">
+        <div class="game-cell top-left"></div>
+        <!-- Cell Div 0 -->
+        <div class="game-cell top-middle"></div>
+        <!-- Cell Div 1 -->
+        <div class="game-cell top-right"></div>
+        <!-- Cell Div 2 -->
+        <div class="game-cell middle-left"></div>
+        <!-- Cell Div 3 -->
+        <div class="game-cell middle-middle"></div>
+        <!-- Cell Div 4 -->
+        <div class="game-cell middle-right"></div>
+        <!-- Cell Div 5 -->
+        <div class="game-cell bottom-left"></div>
+        <!-- Cell Div 6 -->
+        <div class="game-cell bottom-middle"></div>
+        <!-- Cell Div 7 -->
+        <div class="game-cell bottom-right"></div>
+        <!-- Cell Div 8 -->
+      </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+/* Style the Board */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+/* ::before and ::after pseudo elements in css allows you to insert content onto a page without it needing to be in the HTML */
+
+/* border-box - width and height properties include content, oadding and border, but do not include the margin. */
+
+body {
+  text-align: center;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  color: #444;
+}
+
+/* Use root to declare global css variables */
+:root {
+  --cell-size: 150px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+/* css variables above */
+
+#headers {
+  margin: 50%;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 50px;
+  margin-top: -50px;
+}
+
+.status {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: teal;
+}
+
+#reset {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.game-grid {
+  margin-top: -100px;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  /*the grid was column before. this tells css to create 3 per row  */
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* Style the Cells */
+
+.game-cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 3px solid #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* removes the top border */
+.game-cell:first-child,
+.game-cell:nth-child(2),
+.game-cell:nth-child(3) {
+  border-top: none;
+}
+
+/* removes the left border */
+.game-cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+/* removes the right border */
+.game-cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+/* removes the bottom border */
+.game-cell:last-child,
+.game-cell:nth-last-child(2),
+.game-cell:nth-last-child(3) {
+  border-bottom: none;
+}
+
+/* create my x marker */
+.game-cell.x::before,
+/* creates the first line of the x */
+.game-cell.x::after {
+  /* creates the second line of the x */
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  /* width is 15 percent of the cell */
+  height: var(--mark-size);
+  background-color: #e89394;
+}
+
+.game-cell.x::before {
+  transform: rotate(45deg);
+}
+
+.game-cell.x::after {
+  transform: rotate(-45deg);
+}
+
+/* create my circle */
+
+/* smaller circle */
+.game-cell.circle::before,
+.game-cell.circle::after {
+  content: ""; /*renders the before and after elements*/
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* larger circle */
+.game-cell.circle::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: #99c5c4;
+}
+
+.game-cell.circle::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
+}
+
+#reset-button {
+  padding: 10px;
+  border-radius: 8%;
+  font-family: Arial, Helvetica, sans-serif;
+}
